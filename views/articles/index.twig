@@ -1,0 +1,11 @@
+{% for article in articles.all %}
+    <h3>
+        <a href="/articles/{{ article.id }}">{{ article.title }}</a>
+    </h3>
+    <form method="post" action="/articles/{{ article.id }}/delete">
+        <button type="submit" onclick="return confirm('Are you sure?');">X</button>
+    </form>
+    <p>
+        <small>{{ article.createdAt.format('Y-m-d H:i:s') }}</small>
+    </p>
+{% endfor %}
